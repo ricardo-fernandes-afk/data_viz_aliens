@@ -19,7 +19,7 @@ def get_defined_color_palette():
         "chart_color_4": "#F27127",
         "chart_color_5": "#bcbd22",
         "chart_color_6": "#17becf",
-    }
+    } 
     return color_palette
 
 # Beispiel: Farbpalette abrufen
