@@ -3,7 +3,7 @@ import pandas as pd
 import plotly.express as px
 
 # CSV laden
-path = r"C:\Users\FLJ\OneDrive - Hochschule Luzern\Share_JRS\04_Frühlingssemster25\07_DataVis\04_JayRiciTill\data_viz_aliens\C_API\ufo_cleaned.csv"
+path = 'C_API/ufo_cleaned.csv'
 df = pd.read_csv(path)
 
 # Nur USA-Daten verwenden

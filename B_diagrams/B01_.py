@@ -2,7 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # KORREKTER DATEIPFAD – bitte sicherstellen, dass Datei vorhanden ist
-path = r"C:\Users\FLJ\OneDrive - Hochschule Luzern\Share_JRS\04_Frühlingssemster25\07_DataVis\04_JayRiciTill\data_viz_aliens\C_API\ufo_cleaned.csv"
+path = 'C_API/ufo_cleaned.csv'
 df = pd.read_csv(path)
 
 # Sichtungen pro Jahr berechnen
