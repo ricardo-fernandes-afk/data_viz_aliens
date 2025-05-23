@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>They Are Among Us?</title>
+    <style>
+        body { background-color: #111; color: #fff; font-family: sans-serif; margin: 2em; }
+        h1, h2 { color: #39FF14; }
+        .chart-container { margin: 3em 0; }
+        iframe { width: 100%; height: 600px; border: none; }
+    </style>
+</head>
+<body>
+    <h1>They Are Among Us? – A Data Story</h1>
+
+    {% for section in sections %}
+    <div class="chart-container">
+        <h2>{{ section.title }}</h2>
+        <p>{{ section.text }}</p>
+        {% if section.chart %}
+        <iframe src="{{ section.chart }}"></iframe>
+        {% endif %}
+    </div>
+    {% endfor %}
+</body>
+</html>
