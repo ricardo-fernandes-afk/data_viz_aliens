@@ -62,7 +62,6 @@ for year, label in highlights.items():
 # Layout
 fig.update_layout(
     template="plotly_dark",
-    title="When the Sky Went Crazy",
     xaxis_title="Year",
     yaxis_title="Number of Sightings",
     margin=dict(l=40, r=40, t=80, b=40),
