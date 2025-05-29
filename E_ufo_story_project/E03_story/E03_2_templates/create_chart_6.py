@@ -1,44 +1,70 @@
+# create_chart_6.py
 import pandas as pd
-from wordcloud import WordCloud, STOPWORDS
-import matplotlib.pyplot as plt
+import plotly.graph_objects as go
 import os
+from datetime import datetime
 
-# Pfade festlegen
+# Basisverzeichnis
 base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 data_path = os.path.join(base_dir, "E01_data", "ufo_cleaned.csv")
-img_output = os.path.join(base_dir, "E03_story", "E03_1_charts", "slide6_wordcloud_cleaned.png")
+output_path = os.path.join(base_dir, "E03_story", "E03_1_charts", "slide6_diagramm.html")
 
-# Daten laden
+# Daten laden und vorbereiten
 df = pd.read_csv(data_path, low_memory=False)
-df['datetime'] = pd.to_datetime(df['datetime'], errors='coerce')
-df = df.dropna(subset=['datetime'])
+df['date'] = pd.to_datetime(df['datetime'], errors='coerce')
+df = df.dropna(subset=['date'])
+df['day_of_year'] = df['date'].dt.dayofyear
 
-# Feiertage definieren
-holidays = ["01-01", "04-01", "07-04", "10-31", "12-25", "12-31"]
-df['month_day'] = df['datetime'].dt.strftime('%m-%d')
+# Sichtungen nach Kalendertag aggregieren
+sightings_by_day = df['day_of_year'].value_counts().sort_index()
 
-# Nur Kommentare von Feiertagen
-comments = df[df['month_day'].isin(holidays)]['comments'].dropna().astype(str)
-text = " ".join(comments).lower()
+# Feiertage (als day-of-year)
+feiertage = {
+    "New Year's Day":  datetime(2023, 1, 1).timetuple().tm_yday,
+    "April Fools":     datetime(2023, 4, 1).timetuple().tm_yday,
+    "Independence Day": datetime(2023, 7, 4).timetuple().tm_yday,
+    "Halloween":       datetime(2023, 10, 31).timetuple().tm_yday,
+    "Christmas":       datetime(2023, 12, 25).timetuple().tm_yday,
+    "New Year's Eve":  datetime(2023, 12, 31).timetuple().tm_yday,
+}
 
-# Stoppwörter + eigene Ausschlüsse
-stopwords = set(STOPWORDS)
-stopwords.update(["just", "like", "could", "would", "also", "one", "two", "three", "four", "ufo", "object", "objects", "something", "thing", "things", "still"])
+# Linie zeichnen
+fig = go.Figure()
+fig.add_trace(go.Scatter(
+    x=sightings_by_day.index,
+    y=sightings_by_day.values,
+    mode='lines',
+    name='Sightings per Day',
+    line=dict(color='#71AFB3', width=2)
+))
 
-# Wordcloud erstellen
-wc = WordCloud(
-    background_color="black",
-    width=1600,
-    height=800,
-    max_words=80,
-    stopwords=stopwords,
-    colormap="winter",
-    contour_color="#4A62D0",
-    contour_width=0.4
-).generate(text)
+# Feiertage markieren
+for name, day in feiertage.items():
+    if day in sightings_by_day.index:
+        fig.add_trace(go.Scatter(
+            x=[day],
+            y=[sightings_by_day[day]],
+            mode='markers+text',
+            name=name,
+            text=[name],
+            textposition="top center",
+            marker=dict(size=10, color='#FFE600', symbol='star')
+        ))
 
-# Speichern
-os.makedirs(os.path.dirname(img_output), exist_ok=True)
-wc.to_file(img_output)
-print(f"✅ Slide 6 Wordcloud gespeichert: {img_output}")
+# Layout
+fig.update_layout(
+    template="plotly_dark",
+    title="Do UFO Sightings Spike on Holidays?",
+    xaxis_title="Day of Year",
+    yaxis_title="Number of Sightings",
+    font_color="#CCFFE3",
+    plot_bgcolor="#0D0D0D",
+    paper_bgcolor="#0D0D0D",
+    margin=dict(t=80, b=50, l=50, r=50)
+)
 
+# Ordner anlegen und speichern
+os.makedirs(os.path.dirname(output_path), exist_ok=True)
+fig.write_html(output_path, include_plotlyjs='cdn')
+
+print(f"✅ Feiertags-Liniendiagramm gespeichert unter: {output_path}")
