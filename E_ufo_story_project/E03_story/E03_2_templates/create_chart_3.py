@@ -117,7 +117,7 @@ fig.update_layout(
         showframe=False,
         showcoastlines=False
     ),
-    paper_bgcolor='black',
+    template="plotly_dark",
     font_color='white',
     margin=dict(l=10, r=10, t=40, b=40),
     dragmode=False
