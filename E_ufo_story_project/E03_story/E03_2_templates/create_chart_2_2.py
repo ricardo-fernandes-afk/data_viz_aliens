@@ -2,62 +2,75 @@ import pandas as pd
 import plotly.graph_objects as go
 import numpy as np
 import os
+from matplotlib.colors import to_rgb, to_hex
 
-# Pfade setzen
+# Pfade
 base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 data_path = os.path.join(base_dir, "E01_data", "ufo_cleaned.csv")
-output_path = os.path.join(base_dir, "E03_story", "E03_1_charts", "slide2_2_polar_hours.html")
+output_path = os.path.join(base_dir, "E03_story", "E03_1_charts", "slide2_2_hours.html")
 
 # Daten einlesen
 df = pd.read_csv(data_path, low_memory=False)
-df['datetime'] = pd.to_datetime(df['datetime'], errors='coerce')
-df['hour'] = df['datetime'].dt.hour
+df['Occurred'] = pd.to_datetime(df['Occurred'], errors='coerce')
+df['hour'] = df['Occurred'].dt.hour
 
-# Stunden zählen (0–23)
-hour_counts = df['hour'].value_counts().sort_index()
-hours = list(range(24))
-values = [hour_counts.get(h, 0) for h in hours]
+# Gruppierung in 3h-Segmente
+bins = [(0, 3), (3, 6), (6, 9), (9, 12), (12, 15), (15, 18), (18, 21), (21, 24)]
+labels = ["0–3", "3–6", "6–9", "9–12", "12–15", "15–18", "18–21", "21–24"]
+group_counts = [df[df['hour'].between(start, end - 1, inclusive="both")].shape[0] for start, end in bins]
+total = sum(group_counts)
+values = [(v / total) * 100 for v in group_counts]
 
-# Winkel berechnen (Stunde → Grad)
-angles = np.linspace(0, 360, 24, endpoint=False)
-labels = [f"{h}:00" for h in hours]
+# Farbverlauf
+start_color = np.array(to_rgb("#4A62D0"))
+end_color = np.array(to_rgb("#90FCC3"))
+min_val, max_val = min(values), max(values)
+colors = [to_hex((1 - (v - min_val)/(max_val - min_val)) * start_color + ((v - min_val)/(max_val - min_val)) * end_color) for v in values]
 
-# Farbverlauf (nachts = mint, tags = blau)
-colors = ['#4A62D0'] * 24
-for i in list(range(20, 24)) + list(range(0, 3)):
-    colors[i] = '#90FCC3'  # Mintgrün für Nacht
+# Winkelpositionen
+angles = np.linspace(0, 360, len(labels), endpoint=False)
 
-# Plotly Polar Chart
+# Interaktive Texte für Hover
+hover_texts = [
+    f"{count:,} sightings<br>{percent:.1f}%" 
+    for count, percent in zip(group_counts, values)
+]
+
+# Plot
 fig = go.Figure()
 
 fig.add_trace(go.Barpolar(
     r=values,
     theta=angles,
-    width=[15]*24,
+    width=[360/len(labels)] * len(labels),
     marker_color=colors,
     marker_line_color="white",
-    marker_line_width=1,
-    opacity=0.95
+    marker_line_width=0.5,
+    opacity=0.95,
+    hovertext=hover_texts,
+    hoverinfo="text"
 ))
 
 fig.update_layout(
     template="plotly_dark",
-    title="Aliens Love the Night",
+    showlegend=False,
     polar=dict(
-        radialaxis=dict(visible=True, tickfont=dict(color="white")),
+        radialaxis=dict(visible=False),
         angularaxis=dict(
             tickmode='array',
             tickvals=angles,
             ticktext=labels,
             direction="clockwise",
             rotation=90,
-            tickfont=dict(color='white')
+            tickfont=dict(size=13, color="white"),
+            showline=False,
+            ticks=''
         )
     ),
-    margin=dict(l=40, r=40, t=80, b=40)
+    margin=dict(l=40, r=40, t=40, b=40)
 )
 
-# Speichern
+# Speichern als HTML – Interaktiv!
 os.makedirs(os.path.dirname(output_path), exist_ok=True)
 fig.write_html(output_path)
-print(f"✅ Slide 2.2 (Polar Uhrzeit) gespeichert: {output_path}")
+print(f"✅ Interaktive HTML gespeichert: {output_path}")

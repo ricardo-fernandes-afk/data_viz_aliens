@@ -16,13 +16,14 @@ sections = [
     {
         "title": "Aliens Love Summer Nights",
         "text": "Most sightings occur in summer and after dark—coincidence?",
-        "chart": "E03_1_charts/slide2_polar_months.html",
-        "chart2": "E03_1_charts/slide2_2_polar_hours.html"
+        "chart": "E03_1_charts/slide2_months.html",
+        "chart2": "E03_1_charts/slide2_2_hours.html"
     },
     {
     "title": "Hotspots on Earth",
     "text": "The majority of sightings come from the US. But not all states are equal: California, Florida and Texas lead the list.",
-    "chart": "E03_1_charts/slide3_hotspots.html"
+    "chart": "E03_1_charts/slide3_hotspots.html",
+    "chart2": "E03_1_charts/slide3_world.html"
     },
     {
     "title": "Triangles, Fireballs and Lights",
