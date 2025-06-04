@@ -15,6 +15,7 @@ output = template.render()
 output_path = os.path.join(template_dir, 'html_to_run')
 os.makedirs(output_path, exist_ok=True)
 
+
 # Schreibe das gerenderte HTML in dist/index.html (UTF-8 wegen Emojis)
 with open(os.path.join(output_path, 'ufos_in_the_sky.html'), 'w', encoding='utf-8') as f:
     f.write(output)
