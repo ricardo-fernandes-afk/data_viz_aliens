@@ -8,7 +8,7 @@ import numpy as np
 # Pfade
 base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 data_path = os.path.join(base_dir, "E01_data", "ufo_cleaned_new.csv")
-output_path = os.path.join(base_dir, "E04_final_project", "slide2_1_diagram.html")
+output_path = os.path.join("F_final_project", "html_to_run", "slide2_1_diagram.html")
 
 # Daten einlesen
 df = pd.read_csv(data_path, low_memory=False)

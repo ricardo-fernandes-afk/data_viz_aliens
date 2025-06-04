@@ -8,7 +8,7 @@ import os
 # === Pfade definieren ===
 base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 data_path = os.path.join(base_dir, "E01_data", "ufo_cleaned_new.csv")
-output_path = os.path.join(base_dir, "E04_final_project", "slide3_2_diagram.html")
+output_path = os.path.join("F_final_project", "html_to_run", "slide3_2_diagram.html")
 
 # === Daten einlesen ===
 df = pd.read_csv(data_path, low_memory=False)
@@ -90,7 +90,7 @@ fig.update_layout(
         projection=dict(type='natural earth'),
         lataxis=dict(range=[-60, 85]),
     ),
-    paper_bgcolor='black',
+    template="plotly_dark",
     font_color='white',
     margin=dict(l=10, r=10, t=40, b=40),
     dragmode=False
