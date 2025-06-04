@@ -9,9 +9,9 @@ output_path = os.path.join(base_dir, "E04_final_project", "slide4_diagram.html")
 
 # Daten laden & vorbereiten
 df = pd.read_csv(data_path, low_memory=False)
-df['datetime'] = pd.to_datetime(df['datetime'], errors='coerce')
+df['datetime'] = pd.to_datetime(df['Occurred'], errors='coerce')
 df['year'] = df['datetime'].dt.year
-df['shape'] = df['shape'].str.lower().str.strip()
+df['shape'] = df['Shape'].str.lower().str.strip()
 df = df[df['year'].between(1940, 2024)]
 
 # Gruppieren: Sightings pro Jahr und Shape
@@ -41,9 +41,11 @@ for i, shape in enumerate(sorted_shapes):
         mode='lines',
         name=shape.capitalize(),
         line=dict(width=0.5, color=color_hex[i]),
-        stackgroup='one',  # Streamgraph-Effekt
-        hoverinfo='x+y+name'
+        stackgroup='one',
+        hovertemplate=f"<b>{shape.capitalize()}</b><br>Year: %{{x}}<br>Sightings: %{{y:.0f}}<extra></extra>",
+        opacity=0.85
     ))
+
 
 # Layout
 fig.update_layout(
