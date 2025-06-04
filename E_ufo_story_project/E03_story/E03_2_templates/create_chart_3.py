@@ -7,7 +7,7 @@ from matplotlib.colors import to_rgb, to_hex
 # Projektpfade
 base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 data_path = os.path.join(base_dir, "E01_data", "ufo_cleaned_new.csv")
-output_path = os.path.join(base_dir, "E03_story", "E03_1_charts", "slide3_hotspots.html")
+output_path = os.path.join(base_dir, "F_final_project", "html_to_run", "slide3_1_diagram.html")
 
 # Daten einlesen
 df = pd.read_csv(data_path, low_memory=False)

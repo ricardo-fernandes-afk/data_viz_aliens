@@ -4,11 +4,12 @@ import plotly.io as pio
 import os
 
 # Pfade
-csv_path = "E_ufo_story_project/E01_data/ufo_cleaned_new.csv"
-output_path = "E_ufo_story_project/E03_story/E03_1_charts/slide1_timeline.html"
+base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+data_path = os.path.join(base_dir, "E01_data", "ufo_cleaned_new.csv")
+output_path = os.path.join(base_dir, "F_final_project", "html_to_run", "slide1_diagram.html")
 
 # Daten laden
-df = pd.read_csv(csv_path)
+df = pd.read_csv(data_path, low_memory=False)
 df['Year'] = pd.to_numeric(df['Year'], errors='coerce')
 df = df[df['Year'].between(1990, 2024)]
 
@@ -92,5 +93,5 @@ fig.update_layout(
 
 # Speichern
 os.makedirs(os.path.dirname(output_path), exist_ok=True)
-pio.write_html(fig, file=output_path, auto_open=False)
-print(f"✅ Finales Diagramm gespeichert: {output_path}")
+fig.write_html(output_path)
+print(f"✅ Perfektes Monatsdiagramm gespeichert: {output_path}")
