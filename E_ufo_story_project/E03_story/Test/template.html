@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>UFO Story Project</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- AOS Animation CSS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #0D0D0D;
+      color: #CCFFE3;
+      font-family: Helvetica, sans-serif;
+    }
+  </style>
+</head>
+<body>
+
+  {% include 'chapter1.html' %}
+  {% include 'chapter2.html' %}
+  {% include 'chapter3.html' %}
+  {% include 'chapter4.html' %}
+  {% include 'chapter5.html' %}
+  {% include 'chapter6.html' %}
+  {% include 'chapter7.html' %}
+
+  <!-- AOS Animation JS -->
+  <script>
+  AOS.init({
+    once: false,
+    mirror: true,
+    offset: 200,     // Startet später beim Scrollen
+    duration: 1000,
+    easing: 'ease-in-out'
+  });
+</script>
+
+</body>
+</html>

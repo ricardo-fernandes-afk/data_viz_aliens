@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>UFO Story Project</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- AOS Animation CSS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #0D0D0D;
+      color: #CCFFE3;
+      font-family: Helvetica, sans-serif;
+    }
+  </style>
+</head>
+<body>
+
+  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>When the Sky Went Crazy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600&display=swap" rel="stylesheet">
+
+  <!-- GSAP & ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+  <style>
+    :root {
+      --color-mintgreen: #90FCC3;
+      --color-text: #CCFFE3;
+      --color-callout: #4A62D0;
+      --color-transition: #A0F0DB;
+      --color-caption: #AAAAAA;
+      --background: #0D0D0D;
+    }
+
+    body {
+      margin: 0;
+      padding: 2rem;
+      background-color: var(--background);
+      color: var(--color-text);
+      font-family: Helvetica, sans-serif;
+      overflow-x: hidden;
+    }
+
+    .page-wrapper {
+      width: 1440px;
+      margin: 0 auto;
+    }
+
+    .title, .text, .chart-section, .callout, .transition {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+
+    .title {
+      font-size: 3.5rem;
+      font-weight: bold;
+      color: var(--color-mintgreen);
+      margin-bottom: 3rem;
+      text-align: center;
+    }
+
+    .text {
+      font-size: 1.25rem;
+      line-height: 1.7;
+      max-width: 900px;
+      margin-bottom: 4rem;
+    }
+
+    .chart-section {
+      max-width: 900px;
+      margin: 0 auto 4rem auto;
+    }
+
+    .chart-title {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: var(--color-text);
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    .chart-frame {
+      width: 100%;
+      height: 500px;
+      border: none;
+      display: block;
+    }
+
+    .chart-caption {
+      font-size: 0.95rem;
+      color: var(--color-caption);
+      text-align: left;
+      padding-top: 0.8rem;
+    }
+
+    .callout {
+      font-size: 3rem;
+      margin: 6rem 0 2rem 0;
+      color: var(--color-callout);
+      font-family: 'Sora', Helvetica, sans-serif;
+      font-weight: 600;
+      text-align: right;
+    }
+
+    .transition {
+      text-align: center;
+      color: var(--color-transition);
+      font-style: italic;
+      font-size: 1.1rem;
+      margin-top: 4rem;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page-wrapper">
+    <div class="title">When the Sky Went Crazy</div>
+
+    <div class="text">
+      Since the 1940s, thousands of UFO sightings have been reported across the United States and beyond.
+      But the sky doesn’t go wild every year—some peaks stand out.<br><br>
+      In 1997, the infamous Phoenix Lights event lit up Arizona’s sky (and the national news).
+      In 2020, Pentagon videos revived public interest.<br><br>
+      This timeline shows how UFO reports spiked in waves—perhaps reflecting cultural moments, not cosmic arrivals?
+    </div>
+
+    <div class="chart-section">
+      <div class="chart-title">When the Sky Went Crazy</div>
+      <iframe class="chart-frame" src="slide1_timeline.html"></iframe>
+      <div class="chart-caption">
+        🔹 <strong>Phoenix Lights:</strong> Mass UFO sighting over Arizona sparks nationwide interest.<br>
+        🔹 <strong>Post-9/11 Spike:</strong> Heightened surveillance and military activity may have boosted sightings.<br>
+        🔹 <strong>USS Nimitz:</strong> Fighter pilots encounter unidentified objects during routine exercises.
+      </div>
+    </div>
+
+    <div class="callout">
+      ARE WE SEEING MORE UFOS—OR JUST WATCHING MORE NEWS?
+    </div>
+
+    <div class="transition">
+      If sightings rise with media attention… when exactly do people look up into the sky?
+    </div>
+  </div>
+
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    function animateBlock(selector) {
+      gsap.fromTo(selector,
+        { opacity: 0, y: 50 },
+        {
+          opacity: 1,
+          y: 0,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: selector,
+            start: "top 85%",
+            end: "bottom 10%",
+            scrub: 0.3
+          }
+        });
+    }
+
+    animateBlock(".title");
+    animateBlock(".text");
+    animateBlock(".chart-section");
+    animateBlock(".callout");
+    animateBlock(".transition");
+  </script>
+</body>
+</html>
+  
+<!-- chapter2.html -->
+<section id="chapter2" style="width: 1440px; margin: 0 auto; padding: 4rem 2rem; background-color: #0D0D0D; color: #CCFFE3; font-family: Helvetica, sans-serif;">
+  <div style="max-width: 900px;">
+    <h1 style="font-size: 3.5rem; font-weight: bold; color: #90FCC3; line-height: 1.2;">Aliens Love<br>Summer Nights</h1>
+
+    <p style="font-size: 1.25rem; line-height: 1.7; margin: 2rem 0;">
+      UFOs prefer the warm season. Coincidence? Maybe not.<br>
+      Most reports occur in summer months—especially July and August. Longer nights, more outdoor time, or just more imagination in the air?
+    </p>
+
+    <p style="font-size: 1.25rem; line-height: 1.7; margin-bottom: 5rem;">
+      It’s not just the season—time of day matters too.<br>
+      When the sun sets, the sightings start.
+    </p>
+  </div>
+
+  <div style="margin: 0 auto 6rem auto; max-width: 900px;">
+    <iframe src="slide2_polar_months.html" width="100%" height="450" style="border: none;"></iframe>
+  </div>
+
+  <div style="max-width: 900px; margin: 0 auto;">
+    <h2 style="font-size: 2rem; font-weight: bold; color: #90FCC3; text-transform: uppercase; margin-bottom: 1rem;">
+      After Dark, Before Proof
+    </h2>
+
+    <p style="font-size: 1.25rem; line-height: 1.7; margin-bottom: 4rem;">
+      Reports rise sharply after 8 PM and peak around midnight. Maybe that’s when aliens visit—or when we start seeing what we want to see.
+    </p>
+  </div>
+
+  <div style="margin: 0 auto 5rem auto; max-width: 900px;">
+    <iframe src="slide2_2_polar_hours.html" width="100%" height="550" style="border: none;"></iframe>
+  </div>
+
+  <div style="font-size: 3rem; color: #71AFB3; font-family: 'Sora', Helvetica, sans-serif; font-weight: 600; text-align: center; max-width: 1200px; margin: 0 auto;">
+    SO WE KNOW WHEN<br>PEOPLE LOOK UP.<br>
+    BUT WHERE DO<br>THEY LOOK FROM?
+  </div>
+</section>
+  
+<!-- chapter3.html -->
+<section id="chapter3" style="width: 1440px; margin: 0 auto; padding: 4rem 2rem; background-color: #0D0D0D; color: #CCFFE3; font-family: Helvetica, sans-serif;">
+  <div style="display: flex; gap: 3rem; align-items: flex-start; justify-content: center; flex-wrap: wrap; max-width: 1440px;">
+    <div style="flex: 1 1 600px; max-width: 700px;">
+      <h1 style="font-size: 3.5rem; font-weight: bold; color: #90FCC3; line-height: 1.2; margin-bottom: 2rem;">Hotspots on Earth</h1>
+
+      <p style="font-size: 1.25rem; line-height: 1.7; margin-bottom: 1.5rem;">
+        Not all skies are equal. The majority of sightings come from the United States—by far.
+      </p>
+
+      <p style="font-size: 1.25rem; line-height: 1.7;">
+        Within the US, states like California, Florida, and Texas top the list.
+        Why? High population, clear weather, a culture of curiosity… or just better PR for aliens?
+      </p>
+    </div>
+
+    <div style="flex: 1 1 600px; max-width: 700px;">
+      <iframe src="slide3_hotspots.html" width="100%" height="480" style="border: none;"></iframe>
+    </div>
+  </div>
+
+  <div style="text-align: center; font-size: 1.25rem; color: #90FCC3; margin-top: 5rem;">
+    So we know where sightings are reported. But what do people actually see?
+  </div>
+</section>
+  
+<!-- chapter4.html -->
+<section id="chapter4" style="width: 1440px; margin: 0 auto; padding: 4rem 2rem; background-color: #0D0D0D; color: #CCFFE3; font-family: Helvetica, sans-serif;">
+  <div style="max-width: 1000px;">
+    <h1 style="font-size: 3.2rem; font-weight: bold; color: #90FCC3; line-height: 1.2; margin-bottom: 2.5rem;">
+      Triangles, Fireballs and Lights:<br>The Changing Face of UFOs
+    </h1>
+
+    <p style="font-size: 1.25rem; line-height: 1.7; margin-bottom: 1rem;">
+      UFOs don’t just show up—they evolve.
+    </p>
+    <p style="font-size: 1.25rem; line-height: 1.7; margin-bottom: 1rem;">
+      In the 1960s, flying saucers ruled the sky. But in the 2000s, it’s mostly lights, fireballs and triangles.
+    </p>
+    <p style="font-size: 1.25rem; line-height: 1.7; margin-bottom: 4rem;">
+      Are aliens upgrading their vehicles—or are we just describing what we expect to see?
+    </p>
+  </div>
+
+  <div style="margin: 0 auto 6rem auto; max-width: 1000px;">
+    <iframe src="slide4_shapes.html" width="100%" height="500" style="border: none;"></iframe>
+  </div>
+
+  <div style="font-size: 3rem; color: #90FCC3; font-family: 'Sora', Helvetica, sans-serif; font-weight: 600; text-align: left; max-width: 1200px; margin: 0 auto;">
+    SHAPES CHANGE<br>BUT HOW LONG<br>DO THESE SIGHTINGS<br>LAST?
+  </div>
+</section>
+  
+<!-- chapter5_updated.html -->
+<section id="chapter5" style="width: 1440px; margin: 0 auto; padding: 4rem 2rem; background-color: #0D0D0D; color: #CCFFE3; font-family: Helvetica, sans-serif;">
+  <div style="display: flex; gap: 3rem; align-items: flex-start; justify-content: center; flex-wrap: wrap;">
+
+    <!-- Text links -->
+    <div style="flex: 1 1 600px; max-width: 700px;">
+      <h1 style="font-size: 3.2rem; font-weight: bold; color: #90FCC3; line-height: 1.2; margin-bottom: 2rem;">
+        Blink and<br>They‘re Gone?<br>UFO Sightings<br>by Duration
+      </h1>
+
+      <p style="font-size: 1.25rem; line-height: 1.7; margin-bottom: 1rem;">
+        Most UFO encounters are over in a flash. Over 60% of sightings last less than 5 minutes, many even under a minute.
+      </p>
+      <p style="font-size: 1.25rem; line-height: 1.7; margin-bottom: 1rem;">
+        But duration depends on the type. “Triangles” and “spheres” tend to linger, while “lights” often vanish quickly.
+      </p>
+      <p style="font-size: 1.25rem; line-height: 1.7;">
+        Are these differences technical—or psychological?<br>
+        We may never know, but the data points to something more than randomness.
+      </p>
+    </div>
+
+    <!-- Diagramme rechts -->
+    <div style="flex: 1 1 600px; max-width: 600px;">
+      <iframe src="slide5_1_donut_duration.html" width="100%" height="300" style="border: none; margin-bottom: 2rem;"></iframe>
+      <iframe src="slide5_2_heatmap_shape_duration.html" width="100%" height="300" style="border: none;"></iframe>
+    </div>
+
+  </div>
+</section>
+  
+<!-- chapter6.html -->
+<section id="chapter6" style="width: 1440px; margin: 0 auto; padding: 4rem 2rem; background-color: #0D0D0D; color: #CCFFE3; font-family: Helvetica, sans-serif;">
+  <div style="display: flex; gap: 3rem; align-items: flex-start; justify-content: center; flex-wrap: wrap;">
+
+    <!-- Text links -->
+    <div style="flex: 1 1 600px; max-width: 700px;">
+      <h1 style="font-size: 3.2rem; font-weight: bold; color: #90FCC3; line-height: 1.2; margin-bottom: 2rem;">
+        Could timing also relate<br>to special dates?
+      </h1>
+
+      <p style="font-size: 1.25rem; line-height: 1.7; margin-bottom: 1rem;">
+        Some dates seem to draw more than just crowds—they draw eyes to the sky.
+        UFO sightings consistently spike on holidays, especially the loud and light-filled ones.
+        Independence Day leads by far—coincidence, or something more?
+      </p>
+      <p style="font-size: 1.25rem; line-height: 1.7;">
+        Are celebrations masking what’s truly unusual, or are we simply more likely to look up when fireworks fly?
+        Whatever the reason, the calendar seems to matter.
+      </p>
+    </div>
+
+    <!-- Diagramm rechts -->
+    <div style="flex: 1 1 600px; max-width: 600px;">
+      <iframe src="slide6_diagramm.html" width="100%" height="480" style="border: none;"></iframe>
+    </div>
+
+  </div>
+</section>
+  
+<!-- chapter7.html -->
+<section id="chapter7" style="width: 1440px; margin: 0 auto; padding: 6rem 2rem 4rem 2rem; background-color: #0D0D0D; color: #90FCC3; font-family: 'Sora', Helvetica, sans-serif; text-align: center;">
+
+  <h1 style="font-size: 3rem; font-weight: 600; margin-bottom: 1rem;">
+    THE TRUTH IS OUT THERE
+  </h1>
+  <div style="font-size: 1.5rem; margin-bottom: 4rem;">
+    – THE X-FILES
+  </div>
+
+  <div style="font-size: 2rem; line-height: 2.8rem; margin-bottom: 5rem;">
+    JAY<br>RICI<br>TILL
+  </div>
+
+  <div style="font-size: 1rem; font-style: italic; line-height: 1.6; max-width: 800px; margin: 0 auto 2rem auto;">
+    © 2025 T. Rüegg, J. Flammer, R. Fernandes. All rights reserved.<br>
+    This website and its content are the intellectual property of Till Rüegg, unless otherwise stated.<br>
+    Unauthorized use, reproduction, or distribution of any material is prohibited without prior written consent.
+  </div>
+
+  <div style="font-size: 1.1rem; margin-top: 2rem; color: #90FCC3;">
+    PRIVACY POLICY | IMPRINT
+  </div>
+</section>
+
+  <!-- AOS Animation JS -->
+  <script>
+  AOS.init({
+    once: false,
+    mirror: true,
+    offset: 200,     // Startet später beim Scrollen
+    duration: 1000,
+    easing: 'ease-in-out'
+  });
+</script>
+
+</body>
+</html>
