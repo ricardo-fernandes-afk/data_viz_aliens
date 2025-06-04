@@ -6,7 +6,7 @@ from matplotlib.colors import to_rgb, to_hex
 
 # Pfade
 base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
-data_path = os.path.join(base_dir, "E01_data", "ufo_cleaned.csv")
+data_path = os.path.join(base_dir, "E01_data", "ufo_cleaned_new.csv")
 output_path = os.path.join(base_dir, "E03_story", "E03_1_charts", "slide2_2_hours.html")
 
 # Daten einlesen

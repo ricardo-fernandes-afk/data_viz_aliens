@@ -4,7 +4,7 @@ import plotly.io as pio
 import os
 
 # Pfade
-csv_path = "E_ufo_story_project/E01_data/ufo_cleaned.csv"
+csv_path = "E_ufo_story_project/E01_data/ufo_cleaned_new.csv"
 output_path = "E_ufo_story_project/E03_story/E03_1_charts/slide1_timeline.html"
 
 # Daten laden

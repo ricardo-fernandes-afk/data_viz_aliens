@@ -1,4 +1,4 @@
 .git
 .venv
-**/ufo_cleaned.csv
+**/ufo_cleaned_new.csv
 **/nuforc.json
