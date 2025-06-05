@@ -89,21 +89,56 @@ split_lines = go.Scattergeo(
 
 # Text Overlays mit Region & Prozent
 region_text = go.Scattergeo(
-    lon=[-110, -95, -82],
-    lat=[38, 38, 38],
+    lon=[-110, -95, -80],
+    lat=[51, 51, 47],
     mode='text',
     text=[
         f"<b>West</b><br>{region_pct.get('West', '0%')}",
         f"<b>Middle</b><br>{region_pct.get('Middle', '0%')}",
         f"<b>East</b><br>{region_pct.get('East', '0%')}"
     ],
-    textfont=dict(size=16, color="black"),
+    textfont=dict(size=16, color="white"),
     showlegend=False,
     hoverinfo='skip'
 )
 
 # Layout aktualisieren
 fig = go.Figure(data=[choropleth, split_lines, region_text])
+
+# Bundesstaaten-Beschriftung – Koordinaten-Mitte
+state_coords = {
+    'AL': (-86.8, 32.8), 'AK': (-152.4, 61.4), 'AZ': (-111.5, 34.0), 'AR': (-92.4, 34.8),
+    'CA': (-119.4, 36.8), 'CO': (-105.5, 39.1), 'CT': (-72.7, 41.6), 'DE': (-75.5, 38.6),
+    'FL': (-81.5, 27.8), 'GA': (-83.6, 32.6), 'HI': (-155.5, 20.5), 'ID': (-114.2, 44.1),
+    'IL': (-89.2, 40.0), 'IN': (-86.1, 40.2), 'IA': (-93.2, 42.0), 'KS': (-98.0, 38.5),
+    'KY': (-84.8, 37.5), 'LA': (-91.9, 30.9), 'ME': (-69.4, 45.2), 'MD': (-76.6, 39.0),
+    'MA': (-71.8, 42.3), 'MI': (-85.6, 44.2), 'MN': (-94.6, 46.5), 'MS': (-89.7, 32.7),
+    'MO': (-92.6, 38.3), 'MT': (-110.4, 46.9), 'NE': (-99.9, 41.5), 'NV': (-116.9, 38.8),
+    'NH': (-71.6, 43.2), 'NJ': (-74.4, 40.2), 'NM': (-106.1, 34.5), 'NY': (-75.5, 42.9),
+    'NC': (-79.0, 35.5), 'ND': (-100.0, 47.5), 'OH': (-82.9, 40.4), 'OK': (-97.5, 35.5),
+    'OR': (-120.5, 44.1), 'PA': (-77.2, 41.2), 'RI': (-71.4, 41.6), 'SC': (-81.2, 33.8),
+    'SD': (-99.9, 44.4), 'TN': (-86.4, 35.7), 'TX': (-99.9, 31.0), 'UT': (-111.6, 39.3),
+    'VT': (-72.7, 44.0), 'VA': (-78.7, 37.4), 'WA': (-120.7, 47.5), 'WV': (-80.5, 38.6),
+    'WI': (-89.5, 44.5), 'WY': (-107.5, 43.0), 'DC': (-77.0, 38.9)
+}
+
+# Staaten, die nicht beschriftet werden sollen (zu klein/zu eng)
+exclude = {'DC', 'RI', 'CT', 'DE', 'NJ', 'MD', 'MA', 'VT', 'NH'}
+
+# Nur die übrigen Staaten
+visible_states = [s for s in state_counts['state'] if s in state_coords and s not in exclude]
+
+fig.add_trace(go.Scattergeo(
+    lon=[state_coords[s][0] for s in visible_states],
+    lat=[state_coords[s][1] for s in visible_states],
+    text=visible_states,
+    mode="text",
+    textfont=dict(size=8, color="white"),
+    showlegend=False,
+    hoverinfo='skip',
+    geo='geo'
+))
+
 fig.update_layout(
     geo=dict(
         scope='usa',
