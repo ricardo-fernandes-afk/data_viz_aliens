@@ -5,7 +5,7 @@ import os
 # Pfade festlegen
 base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 data_path = os.path.join(base_dir, "E01_data", "ufo_cleaned.csv")
-output_path = os.path.join(base_dir, "E03_story", "E03_1_charts", "slide5_2_heatmap_shape_duration.html")
+output_path = os.path.join("F_final_project", "html_to_run", "slide5_2_diagram.html")
 
 # Daten einlesen
 df = pd.read_csv(data_path, low_memory=False)

@@ -6,7 +6,7 @@ import os
 # Pfade festlegen
 base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 data_path = os.path.join(base_dir, "E01_data", "ufo_cleaned.csv")
-img_output = os.path.join(base_dir, "E03_story", "E03_1_charts", "slide6_wordcloud_cleaned.png")
+img_output = os.path.join("F_final_project", "html_to_run", "slide6_diagram.png")
 
 # Daten laden
 df = pd.read_csv(data_path, low_memory=False)
