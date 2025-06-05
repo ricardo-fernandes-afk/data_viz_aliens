@@ -107,6 +107,5 @@ os.makedirs(os.path.dirname(output_path), exist_ok=True)
 fig.write_html(output_path)
 print(f"✅ Slide 5.1 gespeichert: {output_path}")
 print(df["duration_class"].value_counts())
-df.to_csv("debug_duration_output.csv", index=False)
 
 
