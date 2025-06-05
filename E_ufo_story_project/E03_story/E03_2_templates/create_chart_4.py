@@ -19,11 +19,19 @@ df["shape"] = df["Shape"].str.lower().str.strip()
 counts = df.groupby(["year", "shape"]).size().unstack(fill_value=0)
 
 # 3) Top 20 Shapes auswählen, Rest zu "others" bündeln
+# "other" und "others" zusammenführen
+if "others" in counts.columns and "other" in counts.columns:
+    counts["other"] += counts["others"]
+    counts.drop(columns=["others"], inplace=True)
+elif "others" in counts.columns:
+    counts.rename(columns={"others": "other"}, inplace=True)
+
+# Neue Top 20 berechnen
 totals = counts.sum(axis=0).sort_values(ascending=False)
-top19 = totals.head(19).index.tolist()
-others = [s for s in totals.index if s not in top19]
-counts["others"] = counts[others].sum(axis=1)
-counts = counts[top19 + ["others"]]
+top20 = totals.head(20).index.tolist()
+others = [col for col in counts.columns if col not in top20]
+counts["other"] += counts[others].sum(axis=1)
+counts = counts[top20]
 
 # 4) Index auf alle Jahre erweitern und reset_index
 all_years = range(1950, 2024)  # von 1925 bis 2025
