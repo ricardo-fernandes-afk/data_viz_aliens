@@ -1,30 +1,108 @@
 
-<!-- chapter3.html -->
-<section id="chapter3" style="width: 1440px; margin: 0 auto; padding: 4rem 2rem; background-color: #0D0D0D; color: #CCFFE3; font-family: Helvetica, sans-serif;">
-  <div style="display: flex; gap: 3rem; align-items: flex-start; justify-content: center; flex-wrap: wrap; max-width: 1440px;">
-    <div style="flex: 1 1 600px; max-width: 700px;">
-      <h1 style="font-size: 3.5rem; font-weight: bold; color: #90FCC3; line-height: 1.2; margin-bottom: 2rem;">Hotspots on Earth</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chapter 3 - Hotspots</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --mint: #90FCC3;
+      --background: #0D0D0D;
+      --white: #FFFFFF;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: var(--background);
+      color: var(--mint);
+      font-family: Helvetica, sans-serif;
+    }
+    section#chapter3 {
+      width: 1440px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+    }
+    .chapter-title {
+      font-size: 6rem;
+      color: var(--mint);
+      font-family: sans-serif;
+      font-weight: bold;
+      line-height: 1.2;
+      text-align: left;
+      margin-bottom: 3rem;
+    }
+    .intro-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 4rem;
+    }
+    .intro-text {
+      width: 33%;
+      font-size: 1.25rem;
+      line-height: 1.7;
+      font-family: Helvetica, sans-serif;
+    }
+    .diagram1 {
+      width: 50%;
+    }
+    .diagram1 iframe {
+      width: 100%;
+      height: 400px;
+      border: none;
+    }
+    .diagram-title {
+      font-size: 1.2rem;
+      color: var(--white);
+      text-align: center;
+      margin-bottom: 1rem;
+      font-family: Helvetica, sans-serif;
+    }
+    .full-diagram {
+      width: 100%;
+      margin: 4rem auto 6rem auto;
+    }
+    .full-diagram iframe {
+      width: 100%;
+      height: 600px;
+      border: none;
+    }
+    .transition {
+      text-align: center;
+      font-size: 1.25rem;
+      color: var(--mint);
+      line-height: 1.6;
+      font-family: Helvetica, sans-serif;
+    }
+  </style>
+</head>
+<body>
+<section id="chapter3">
+  <div class="chapter-title">Hotspots<br>on Earth</div>
 
-      <p style="font-size: 1.25rem; line-height: 1.7; margin-bottom: 1.5rem;">
-        Not all skies are equal. The majority of sightings come from the United States—by far.
-      </p>
-
-      <p style="font-size: 1.25rem; line-height: 1.7;">
-        Within the US, states like California, Florida, and Texas top the list.
-        Why? High population, clear weather, a culture of curiosity… or just better PR for aliens?
-      </p>
+  <div class="intro-container">
+    <div class="intro-text">
+      Not all skies are equal. The majority of sightings come from the United States—by far.<br><br>
+      Within the US, states like California, Florida, and Texas top the list.
+      Why? High population, clear weather, a culture of curiosity… or just better PR for aliens?
     </div>
-
-    <div style="flex: 1 1 600px; max-width: 700px;">
-      <iframe src="slide3_1_diagram.html" width="100%" height="480" style="border: none;"></iframe>
+    <div class="diagram1">
+      <div class="diagram-title">Sightings by US State</div>
+      <iframe src="slide3_1_diagram.html"></iframe>
     </div>
   </div>
 
-  <div style="margin: 0 auto 6rem auto; max-width: 900px;">
-    <iframe src="slide3_2_diagram.html" width="100%" height="450" style="border: none;"></iframe>
+  <div class="full-diagram">
+    <div class="diagram-title">Sightings Around the World</div>
+    <iframe src="slide3_2_diagram.html"></iframe>
   </div>
 
-  <div style="text-align: center; font-size: 1.25rem; color: #90FCC3; margin-top: 5rem;">
-    So we know where sightings are reported. But what do people actually see?
+  <div class="transition">
+    So we know where sightings are reported.<br>
+    But what do people actually see?
   </div>
 </section>
+</body>
+</html>

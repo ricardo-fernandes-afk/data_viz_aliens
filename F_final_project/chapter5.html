@@ -1,31 +1,88 @@
 
-<!-- chapter5_updated.html -->
-<section id="chapter5" style="width: 1440px; margin: 0 auto; padding: 4rem 2rem; background-color: #0D0D0D; color: #CCFFE3; font-family: Helvetica, sans-serif;">
-  <div style="display: flex; gap: 3rem; align-items: flex-start; justify-content: center; flex-wrap: wrap;">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chapter 5 – UFO Shapes and Durations</title>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --mint: #90FCC3;
+      --background: #0D0D0D;
+    }
 
-    <!-- Text links -->
-    <div style="flex: 1 1 600px; max-width: 700px;">
-      <h1 style="font-size: 3.2rem; font-weight: bold; color: #90FCC3; line-height: 1.2; margin-bottom: 2rem;">
-        Blink and<br>They‘re Gone?<br>UFO Sightings<br>by Duration
-      </h1>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: var(--background);
+      color: var(--mint);
+      font-family: Helvetica, sans-serif;
+    }
 
-      <p style="font-size: 1.25rem; line-height: 1.7; margin-bottom: 1rem;">
-        Most UFO encounters are over in a flash. Over 60% of sightings last less than 5 minutes, many even under a minute.
-      </p>
-      <p style="font-size: 1.25rem; line-height: 1.7; margin-bottom: 1rem;">
-        But duration depends on the type. “Triangles” and “spheres” tend to linger, while “lights” often vanish quickly.
-      </p>
-      <p style="font-size: 1.25rem; line-height: 1.7;">
-        Are these differences technical—or psychological?<br>
-        We may never know, but the data points to something more than randomness.
-      </p>
+    .container {
+      width: 1440px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+    }
+
+    .chapter-title {
+      font-size: 6rem;
+      color: var(--mint);
+      font-family: sans-serif;
+      font-weight: bold;
+      line-height: 1.2;
+      text-align: left;
+      margin-bottom: 3rem;
+    }
+
+    .intro-text {
+      width: 33%;
+      font-size: 1.25rem;
+      line-height: 1.7;
+      font-family: Helvetica, sans-serif;
+      margin-bottom: 4rem;
+    }
+
+    .diagram-wide {
+      width: 100%;
+      border: none;
+      display: block;
+      margin: 2rem 0;
+    }
+
+    .after-title {
+      font-size: 4rem;
+      color: var(--mint);
+      font-family: 'Zen Dots', sans-serif;
+      font-weight: normal;
+      text-align: left;
+      width: 66%;
+      margin: 4rem 0 1rem 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="chapter-title">UFO Shapes<br>and Durations</div>
+    <div class="intro-text">
+      Some UFOs are over in seconds. Others linger.<br>
+      Triangles tend to hang around. Fireballs? They're fast.<br><br>
+      How long something is visible might depend on what shape it takes—or how much we stare.
     </div>
 
-    <!-- Diagramme rechts -->
-    <div style="flex: 1 1 600px; max-width: 600px;">
-      <iframe src="slide5_1_diagram.html" width="100%" height="300" style="border: none; margin-bottom: 2rem;"></iframe>
-      <iframe src="slide5_2_diagram.html" width="100%" height="300" style="border: none;"></iframe>
-    </div>
+    <div>
+      <div class="diagram-title">How Long Are The UFOs Seen?</div>
+      <iframe src="slide5_1_diagram.html" class="diagram-wide" height="200"></iframe></div>
+    <div>
+      <div class="diagram-title">Which Shapes Last How Long?</div>
+      <iframe src="slide5_2_diagram.html" class="diagram-wide" height="1000"></iframe></div>
 
+    <div class="after-title">
+      Shapes change<br>
+      but how long<br>
+      do these sightings<br>
+      last?
+    </div>
   </div>
-</section>
+</body>
+</html>

@@ -5,72 +5,67 @@
   <meta charset="UTF-8">
   <title>When the Sky Went Crazy</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600&display=swap" rel="stylesheet">
-
-  <!-- GSAP & ScrollTrigger -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600&family=Zen+Dots&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --color-mintgreen: #90FCC3;
-      --color-text: #CCFFE3;
-      --color-callout: #4A62D0;
-      --color-transition: #A0F0DB;
-      --color-caption: #AAAAAA;
+      --mint: #90FCC3;
+      --white: #ffffff;
       --background: #0D0D0D;
+      --callout: #2948d1;
     }
 
     body {
       margin: 0;
-      padding: 2rem;
+      padding: 0;
       background-color: var(--background);
-      color: var(--color-text);
+      color: var(--mint);
       font-family: Helvetica, sans-serif;
-      overflow-x: hidden;
     }
 
-    .page-wrapper {
+    .container {
       width: 1440px;
       margin: 0 auto;
+      padding: 4rem 2rem;
     }
 
-    .title, .text, .chart-section, .callout, .transition {
-      opacity: 0;
-      transform: translateY(50px);
-    }
-
-    .title {
-      font-size: 3.5rem;
+    .chapter-title {
+      font-size: 6rem;
+      color: var(--mint);
+      font-family: sans-serif;
       font-weight: bold;
-      color: var(--color-mintgreen);
-      margin-bottom: 3rem;
-      text-align: center;
+      text-align: right;
+      line-height: 1.2;
     }
 
-    .text {
-      font-size: 1.25rem;
-      line-height: 1.7;
-      max-width: 900px;
+    .text-block {
+      font-size: 1.15rem;
+      line-height: 1.8;
+      color: var(--mint);
       margin-bottom: 4rem;
+      width: 60%;
     }
 
-    .chart-section {
-      max-width: 900px;
-      margin: 0 auto 4rem auto;
+    .chart-block {
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 3rem;
+    }
+
+    .chart-wrapper {
+      width: 60%;
+      max-width: 1000px;
     }
 
     .chart-title {
+      color: var(--white);
       font-size: 1.2rem;
-      font-weight: bold;
-      color: var(--color-text);
       text-align: center;
-      margin-bottom: 1rem;
+      margin-bottom: 0.5rem;
     }
 
-    .chart-frame {
+    iframe.chart-frame {
       width: 100%;
       height: 500px;
       border: none;
@@ -79,35 +74,36 @@
 
     .chart-caption {
       font-size: 0.95rem;
-      color: var(--color-caption);
+      color: var(--mint);
+      margin-top: 0.5rem;
       text-align: left;
-      padding-top: 0.8rem;
     }
 
     .callout {
-      font-size: 3rem;
-      margin: 6rem 0 2rem 0;
-      color: var(--color-callout);
-      font-family: 'Sora', Helvetica, sans-serif;
-      font-weight: 600;
-      text-align: right;
+      font-size: 5.5rem;
+      font-family: 'Zen Dots', sans-serif;
+      color: var(--callout);
+      text-align: left;
+      margin-top: 6rem;
+      margin-bottom: 12rem;
     }
 
     .transition {
       text-align: center;
-      color: var(--color-transition);
+      color: var(--mint);
       font-style: italic;
-      font-size: 1.1rem;
-      margin-top: 4rem;
+      font-size: 1.2rem;
+      line-height: 1.8;
+      max-width: 600px;
+      margin: 2rem auto;
     }
   </style>
 </head>
-
 <body>
-  <div class="page-wrapper">
-    <div class="title">When the Sky Went Crazy</div>
+  <div class="container">
+    <div class="chapter-title">When the Sky Went Crazy</div>
 
-    <div class="text">
+    <div class="text-block">
       Since the 1940s, thousands of UFO sightings have been reported across the United States and beyond.
       But the sky doesn’t go wild every year—some peaks stand out.<br><br>
       In 1997, the infamous Phoenix Lights event lit up Arizona’s sky (and the national news).
@@ -115,49 +111,27 @@
       This timeline shows how UFO reports spiked in waves—perhaps reflecting cultural moments, not cosmic arrivals?
     </div>
 
-    <div class="chart-section">
-      <div class="chart-title">When the Sky Went Crazy</div>
-      <iframe class="chart-frame" src="slide1_diagram.html"></iframe>
-      <div class="chart-caption">
-        🔹 <strong>Phoenix Lights:</strong> Mass UFO sighting over Arizona sparks nationwide interest.<br>
-        🔹 <strong>Post-9/11 Spike:</strong> Heightened surveillance and military activity may have boosted sightings.<br>
-        🔹 <strong>USS Nimitz:</strong> Fighter pilots encounter unidentified objects during routine exercises.
+    <div class="chart-block">
+      <div class="chart-wrapper">
+        <div class="chart-title">When the Sky Went Crazy</div>
+        <iframe class="chart-frame" src="slide1_diagram.html"></iframe>
+        <div class="chart-caption">
+          🔹 <strong>Phoenix Lights:</strong> Mass UFO sighting over Arizona sparks nationwide interest.<br>
+          🔹 <strong>Post-9/11 Spike:</strong> Heightened surveillance and military activity may have boosted sightings.<br>
+          🔹 <strong>USS Nimitz:</strong> Fighter pilots encounter unidentified objects during routine exercises.<br>
+          🔹 <strong>Pentagon video:</strong> missing Text
+        </div>
       </div>
     </div>
 
     <div class="callout">
-      ARE WE SEEING MORE UFOS—OR JUST WATCHING MORE NEWS?
+      ARE WE SEEING MORE UFOS OR JUST WATCHING MORE NEWS?
     </div>
 
     <div class="transition">
-      If sightings rise with media attention… when exactly do people look up into the sky?
+      If sightings rise with media attention…<br>
+      when exactly do people look up into the sky?
     </div>
   </div>
-
-  <script>
-    gsap.registerPlugin(ScrollTrigger);
-
-    function animateBlock(selector) {
-      gsap.fromTo(selector,
-        { opacity: 0, y: 50 },
-        {
-          opacity: 1,
-          y: 0,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: selector,
-            start: "top 85%",
-            end: "bottom 10%",
-            scrub: 0.3
-          }
-        });
-    }
-
-    animateBlock(".title");
-    animateBlock(".text");
-    animateBlock(".chart-section");
-    animateBlock(".callout");
-    animateBlock(".transition");
-  </script>
 </body>
 </html>
