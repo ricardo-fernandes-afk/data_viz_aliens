@@ -61,9 +61,9 @@ choropleth = go.Choropleth(
     showscale=True,
     colorbar=dict(
         title=dict(
-            text='Number<br>of Sightings',
+            text='Number of Sightings',
             side='right',
-            font=dict(color='white', size=12)
+            font=dict(color='white', size=8)
         ),
         tickfont=dict(color='white', size=10),
         len=0.9,             # fast gesamte Höhe
@@ -93,11 +93,11 @@ region_text = go.Scattergeo(
     lat=[51, 51, 47],
     mode='text',
     text=[
-        f"<b>West</b><br>{region_pct.get('West', '0%')}",
-        f"<b>Middle</b><br>{region_pct.get('Middle', '0%')}",
-        f"<b>East</b><br>{region_pct.get('East', '0%')}"
+        f"<b></b><br>{region_pct.get('West', '0%')}",
+        f"<b></b><br>{region_pct.get('Middle', '0%')}",
+        f"<b></b><br>{region_pct.get('East', '0%')}"
     ],
-    textfont=dict(size=16, color="white"),
+    textfont=dict(size=10, color="white"),
     showlegend=False,
     hoverinfo='skip'
 )
@@ -146,16 +146,16 @@ fig.update_layout(
         landcolor='black',
         bgcolor='rgba(0,0,0,0)',
         lakecolor='black',
-        center=dict(lat=38, lon=-95),
+        center=dict(lat=38, lon=-100),
         projection=dict(type='albers usa'),
         showcountries=False,
         showframe=False,
-        showcoastlines=False
+        showcoastlines=False,
     ),
     template="plotly_dark",
     font_color='white',
-    margin=dict(l=10, r=10, t=40, b=40),
-    dragmode=False
+    margin=dict(l=10, r=10, t=40, b=10),
+    dragmode=False,
 )
 
 # HTML speichern
