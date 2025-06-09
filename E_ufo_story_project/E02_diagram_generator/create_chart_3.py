@@ -6,7 +6,7 @@ from matplotlib.colors import to_rgb, to_hex
 
 # Projektpfade
 base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
-data_path = os.path.join(base_dir, "E01_data", "ufo_cleaned_new.csv")
+data_path = os.path.join("E_ufo_story_project", "E01_data", "ufo_cleaned_new.csv")
 output_path = os.path.join("F_final_project", "html_to_run", "slide3_1_diagram.html")
 
 # Daten einlesen
@@ -133,7 +133,7 @@ fig.add_trace(go.Scattergeo(
     lat=[state_coords[s][1] for s in visible_states],
     text=visible_states,
     mode="text",
-    textfont=dict(size=8, color="white"),
+    textfont=dict(size=8, color="black"),
     showlegend=False,
     hoverinfo='skip',
     geo='geo'

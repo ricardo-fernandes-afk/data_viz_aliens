@@ -46,7 +46,7 @@ def duration_to_seconds(duration_str):
 
 # Pfade
 base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
-data_path = os.path.join(base_dir, "E01_data", "ufo_cleaned_new.csv")
+data_path = os.path.join("E_ufo_story_project", "E01_data", "ufo_cleaned_new.csv")
 output_path = os.path.join("F_final_project", "html_to_run", "slide5_1_diagram.html")
 
 # Daten laden
