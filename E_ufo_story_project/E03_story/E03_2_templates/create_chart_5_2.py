@@ -94,7 +94,7 @@ fig.update_layout(
     width=1000,
     margin=dict(l=10, r=10, t=40, b=40),
     showlegend=True,
-    bargap=0.15,
+    bargap=0.5,
     xaxis=dict(
         tickvals=[0.0, 1.0],
         ticktext=["0%", "100%"],
