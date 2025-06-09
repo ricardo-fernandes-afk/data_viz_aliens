@@ -17,6 +17,6 @@ os.makedirs(output_path, exist_ok=True)
 
 
 # Schreibe das gerenderte HTML in dist/index.html (UTF-8 wegen Emojis)
-with open(os.path.join(output_path, 'ufos_in_the_sky.html'), 'w', encoding='utf-8') as f:
+with open(os.path.join(output_path, 'show_full_ufo_story.html'), 'w', encoding='utf-8') as f:
     f.write(output)
 
