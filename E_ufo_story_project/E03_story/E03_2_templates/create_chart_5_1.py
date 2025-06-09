@@ -98,7 +98,7 @@ fig.update_layout(
         showgrid=False,
         title=None
     ),    margin=dict(l=10, r=10, t=40, b=40),
-    height=150,
+    height=105,
     showlegend=False,
 )
 
